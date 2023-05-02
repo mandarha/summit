@@ -54,7 +54,7 @@ try:
     list_of_industries =  pd_group_score_df.Industry.unique()
     st.sidebar.header("**:green[----------------------------------------]**")
     selected_industry = st.sidebar.selectbox("Select Industry you want to analyze further",list_of_industries)
-    pd_selected_df = get_raw_esg_data(conn)
+    pd_selected_df = get_raw_esg_data(conn,selected_date)
     pd_selected_df = pd_selected_df[pd_selected_df['INDUSTRY_DESC'] == selected_industry]
     st.write("")
     st.write("")
