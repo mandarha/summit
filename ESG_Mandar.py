@@ -23,14 +23,14 @@ def init_connection():
     return conn
 
 @st.cache_data
-def get_raw_esg_data(_conn):
+def get_raw_esg_data(_conn,selected_date):
     pd.read_sql("USE ROLE SYSADMIN",_conn)
-    esg_raw_df = pd.read_sql("SELECT * FROM csrhub.public.faststarttrial;", _conn)
+    esg_raw_df = pd.read_sql("SELECT * FROM csrhub.public.faststarttrial where rating_date < '{}';".format(selected_date), _conn)
     return esg_raw_df
 
 
-def get_agg_esg_data(conn):
-    esg_raw_df = get_raw_esg_data(conn)
+def get_agg_esg_data(conn,selected_date):
+    esg_raw_df = get_raw_esg_data(conn,selected_date)
     pd_esg_raw_df = pd.DataFrame(esg_raw_df)
     pd_group_score_df = pd_esg_raw_df[['INDUSTRY_DESC','COMMUNITY','EMPLOYEES','ENVIRONMENT','GOVERNANCE']]
     pd_group_score_df = pd_group_score_df.groupby('INDUSTRY_DESC',as_index = False)[['COMMUNITY','EMPLOYEES','ENVIRONMENT','GOVERNANCE']].mean()
@@ -47,8 +47,8 @@ try:
     st.sidebar.header("**:green[----------------------------------------]**")
     st.sidebar.markdown("**_:red[Disclaimer : This application is based on data provided by CSR Hub on Snowflake Marketplace]_**")
     conn = init_connection()
-    st.sidebar.date_input("Select date for which you need ESG Scorecard")
-    pd_group_score_df = get_agg_esg_data(conn)
+    selected_date = st.sidebar.date_input("Select date for which you need ESG Scorecard")
+    pd_group_score_df = get_agg_esg_data(conn,selected_date)
     st.write("**:grey[Industry Wise ESG Score card :dart:]**")
     st.dataframe(pd_group_score_df)
     list_of_industries =  pd_group_score_df.Industry.unique()
