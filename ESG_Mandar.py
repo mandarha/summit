@@ -56,14 +56,14 @@ try:
     selected_industry = st.sidebar.selectbox("Select Industry you want to analyze further",list_of_industries)
     pd_selected_df = get_raw_esg_data(conn,selected_date)
     pd_selected_df = pd_selected_df[pd_selected_df['INDUSTRY_DESC'] == selected_industry]
+    list_of_companies = pd_selected_df.COMPANY_NAME.unique()
     pd_selected_df = pd_selected_df.groupby(['CSRHUB_ID','COMPANY_NAME','ISIN','TICKER','INDUSTRY_DESC','DJ30TAG','RATING_STATUS'])[['RATING_DATE']].max()
     st.write("")
     st.write("")
     st.write("**:blue[ESG Score Details of Companies under industry ",selected_industry,"dated ",selected_date, " ]**")
     st.write("")
     st.write("")
-    #list_of_companies = pd_selected_df.COMPANY_NAME.unique()
-    #st.sidebar.selectbox("Select Company that you wish to see all ESG scores",list_of_companies)
+    st.sidebar.selectbox("Select Company that you wish to see all ESG scores",list_of_companies)
     st.dataframe(pd_selected_df)
     
 
