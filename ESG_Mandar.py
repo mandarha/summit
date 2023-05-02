@@ -48,7 +48,11 @@ try:
     pd_group_score_df = get_agg_esg_data(conn)
     st.dataframe(pd_group_score_df)
     list_of_industries =  pd_group_score_df.Industry.unique()
-    st.sidebar.selectbox("Select Industry you want to analyze further",list_of_industries)
+    st.sidebar.header("**:green[----------------------------------------]**")
+    selected_industry = st.sidebar.selectbox("Select Industry you want to analyze further",list_of_industries)
+    pd_selected_df = get_raw_esg_data(conn)
+    pd_selected_df = pd_selected_df[pd_selected_df['Industry'] == selected_industry]
+    st.dataframe(pd_selected_df)
 
     
 finally:
