@@ -47,6 +47,7 @@ try:
     st.sidebar.header("**:green[----------------------------------------]**")
     st.sidebar.markdown("**_:red[Disclaimer : This application is based on data provided by CSR Hub on Snowflake Marketplace]_**")
     conn = init_connection()
+    st.sidebar.date_input("Select date for which you need ESG Scorecard")
     pd_group_score_df = get_agg_esg_data(conn)
     st.write("**:grey[Industry Wise ESG Score card :dart:]**")
     st.dataframe(pd_group_score_df)
