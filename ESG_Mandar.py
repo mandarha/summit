@@ -56,7 +56,7 @@ try:
     selected_industry = st.sidebar.selectbox("Select Industry you want to analyze further",list_of_industries)
     pd_selected_df = get_raw_esg_data(conn,selected_date)
     pd_selected_df = pd_selected_df[pd_selected_df['INDUSTRY_DESC'] == selected_industry]
-    #pd_selected_df = pd_selected_df.groupby('CSRHUB_ID','COMPANY_NAME','ISIN','TICKER','INDUSTRY_DESC','DJ30TAG','RATING_STATUS')[['RATING_DATE']].max()
+    pd_selected_df = pd_selected_df.groupby('CSRHUB_ID','COMPANY_NAME','ISIN','TICKER','INDUSTRY_DESC','DJ30TAG','RATING_STATUS')[['RATING_DATE']].max()
     st.write("")
     st.write("")
     st.write('ESG Score Details of Companies under industry :  ',selected_industry)
