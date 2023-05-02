@@ -32,12 +32,13 @@ def run_query(query):
 
 run_query("USE ROLE SYSADMIN;")
 
-esg_raw_data  = run_query("select csrhub_id,company_name,isin,ticker,industry_desc,dj30tag,community,employees,environment,governance,rating_date,rating_status from csrhub.public.faststarttrial ;")
+#esg_raw_data  = run_query("select csrhub_id,company_name,isin,ticker,industry_desc,dj30tag,community,employees,environment,governance,rating_date,rating_status from csrhub.public.faststarttrial ;")
+esg_raw_df = pd.read_sql("SELECT * FROM csrhub.public.faststarttrial;", conn)
 
-pd_esg_raw_data = pd.DataFrame(esg_raw_data)
+pd_esg_raw_df = pd.DataFrame(esg_raw_df)
 #st.write(pd_rows.columns)
 #pd_rows.columns = ['EMPID','SALARY']
 #st.write(pd_rows.columns)                 
 #pd_rows = pd_rows.groupby(["EMPID"]).sum()
 
-st.dataframe(pd_esg_raw_data)
+st.dataframe(pd_esg_raw_df)
