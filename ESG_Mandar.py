@@ -59,7 +59,7 @@ try:
     pd_selected_df = pd_selected_df.groupby(['CSRHUB_ID','COMPANY_NAME','ISIN','TICKER','INDUSTRY_DESC','DJ30TAG','RATING_STATUS'])[['RATING_DATE']].max()
     st.write("")
     st.write("")
-    st.write('ESG Score Details of Companies under industry ',selected_industry,' dated ',selected_date)
+    st.write("**:blue[ESG Score Details of Companies under industry ',selected_industry,' dated ',selected_date]**")
     st.write("")
     st.write("")
     st.dataframe(pd_selected_df)
