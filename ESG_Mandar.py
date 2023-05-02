@@ -32,7 +32,7 @@ def run_query(query):
 
 run_query("USE ROLE SYSADMIN;")
 
-esg_raw_data  = run_query("select * from csrhub.public.faststarttrial ;")
+esg_raw_data  = run_query("select csrhub_id,company_name,isin,ticker,industry_desc,dj30tag,community,employees,environment,governance,rating_date,rating_status from csrhub.public.faststarttrial ;")
 
 pd_esg_raw_data = pd.DataFrame(esg_raw_data)
 #st.write(pd_rows.columns)
