@@ -39,7 +39,7 @@ def get_agg_esg_data(conn):
 
 
 try:
-    st.sidebar.header("**:green[ESG Insights]**")
+    st.sidebar.header("**:green[ESG Insights ]:evergreen_tree:**")
     st.sidebar.header("**:green[----------------------------------------]**")
     st.sidebar.markdown("**:blue[This app displays ESG insights for various \
                         industries.\
