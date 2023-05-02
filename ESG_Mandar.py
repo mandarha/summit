@@ -46,4 +46,4 @@ try:
     pd_group_score_df = get_agg_esg_data(conn)
     st.dataframe(pd_group_score_df)
 finally:
-    st.write("**blue[----------------------------------------Presentation Over----------------------------------------]**")
+    st.write("**:blue[----------------------------------------Presentation Over----------------------------------------]**")
