@@ -63,7 +63,7 @@ try:
     st.write("")
     st.write("")
     list_of_companies = pd_selected_df.COMPANY_NAME.unique()
-    st.sidebar.selectbox("Select Company that you wish to see all ESG scores",list_of_companies)
+    #st.sidebar.selectbox("Select Company that you wish to see all ESG scores",list_of_companies)
     st.dataframe(pd_selected_df)
     
 
