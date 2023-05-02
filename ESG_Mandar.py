@@ -47,7 +47,7 @@ def get_agg_esg_data(conn):
 
 
 try:
-    init_connection()
+    conn = init_connection()
     pd_group_score_df = get_agg_esg_data(conn)
     st.dataframe(pd_group_score_df)
 finally:
