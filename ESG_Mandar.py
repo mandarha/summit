@@ -55,6 +55,10 @@ try:
     selected_industry = st.sidebar.selectbox("Select Industry you want to analyze further",list_of_industries)
     pd_selected_df = get_raw_esg_data(conn)
     pd_selected_df = pd_selected_df[pd_selected_df['INDUSTRY_DESC'] == selected_industry]
+    st.write("")
+    st.write("")
+    st.write("")
+    st.write("**:grey[ESG Score Details of Companies under industry ]",selected_industry)
     st.dataframe(pd_selected_df)
 
     
