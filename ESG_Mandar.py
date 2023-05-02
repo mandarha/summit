@@ -37,8 +37,7 @@ esg_raw_df = pd.read_sql("SELECT * FROM csrhub.public.faststarttrial;", conn)
 
 pd_esg_raw_df = pd.DataFrame(esg_raw_df)
 pd_group_score_df = pd_esg_raw_df[['INDUSTRY_DESC','COMMUNITY','EMPLOYEES','ENVIRONMENT','GOVERNANCE']]
-#pd_rows.columns = ['EMPID','SALARY']
-#st.write(pd_rows.columns)                 
 #pd_rows = pd_rows.groupby(["EMPID"]).sum()
+pd_group_score_df = pd_group_score_df.groupby['INDUSTRY_DESC'].avg()
 
 st.dataframe(pd_group_score_df)
