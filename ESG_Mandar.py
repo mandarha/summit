@@ -63,8 +63,10 @@ try:
     st.write("**:blue[ESG Score Details of Companies under industry ",selected_industry,"dated ",selected_date, " ]**")
     st.write("")
     st.write("")
-    st.sidebar.selectbox("Select Company that you wish to see all ESG scores",list_of_companies)
     st.dataframe(pd_selected_df)
+    selected_company = st.sidebar.selectbox("Select Company that you wish to see all ESG scores",list_of_companies)
+    pd_select_comp_df = pd_selected_df[pd_selected_df['COMPANY_NAME'] == selected_company]
+    st.dataframe(pd_select_comp_df)
     
 
     
