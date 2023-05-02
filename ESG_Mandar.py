@@ -47,5 +47,9 @@ try:
     conn = init_connection()
     pd_group_score_df = get_agg_esg_data(conn)
     st.dataframe(pd_group_score_df)
+    list_of_industries =  pd_group_score_df.Industry.unique()
+    st.sidebar.selectbox("Select Industry you want to analyze further",list_of_industries)
+
+    
 finally:
     st.write("**:blue[----------------------------------------Presentation Over----------------------------------------]**")
