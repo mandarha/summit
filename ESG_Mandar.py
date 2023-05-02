@@ -43,7 +43,7 @@ try:
     st.sidebar.header("**:green[----------------------------------------]**")
     st.sidebar.markdown("**:blue[This app displays ESG insights for various \
                         industries.\
-                        Please scroll down to visualize further details at specific industry level\
+                        Please scroll down to visualize further details at specific Industry level\
                         and then at individual Company level]**")
     st.sidebar.header("**:green[----------------------------------------]**")
     st.sidebar.markdown("**_:red[Disclaimer : This application is based on data provided by CSR Hub on Snowflake Marketplace]_**")
