@@ -58,7 +58,7 @@ try:
     pd_selected_df_1 = pd_selected_df
     pd_selected_df = pd_selected_df[pd_selected_df['INDUSTRY_DESC'] == selected_industry]
     list_of_companies = pd_selected_df.COMPANY_NAME.unique()
-    pd_selected_df = pd_selected_df.groupby(['CSRHUB_ID','COMPANY_NAME','ISIN','TICKER','INDUSTRY_DESC','DJ30TAG','RATING_STATUS'])[['RATING_DATE']].max()
+    pd_selected_df = pd_selected_df.groupby(['CSRHUB_ID','COMPANY_NAME','ISIN','TICKER','INDUSTRY_DESC','DJ30TAG','RATING_STATUS'])[['RATING_DATE','COMMUNITY','EMPLOYEES','ENVIRONMENT','GOVERNANCE']].max()
     st.write("")
     st.write("")
     st.write("**:blue[ESG Score Details of Companies under industry ",selected_industry,"dated ",selected_date, " ]**")
