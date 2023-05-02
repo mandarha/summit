@@ -36,9 +36,9 @@ run_query("USE ROLE SYSADMIN;")
 esg_raw_df = pd.read_sql("SELECT * FROM csrhub.public.faststarttrial;", conn)
 
 pd_esg_raw_df = pd.DataFrame(esg_raw_df)
-#st.write(pd_rows.columns)
+pd_group_score_df = pd_esg_raw_df[['INDUSTRY_DESC','COMMUNITY','EMPLOYEES','ENVIRONMENT','GOVERNANCE']]
 #pd_rows.columns = ['EMPID','SALARY']
 #st.write(pd_rows.columns)                 
 #pd_rows = pd_rows.groupby(["EMPID"]).sum()
 
-st.dataframe(pd_esg_raw_df)
+st.dataframe(pd_group_score_df)
