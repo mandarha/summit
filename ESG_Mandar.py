@@ -33,8 +33,8 @@ def run_query(query):
 run_query("USE ROLE SYSADMIN;")
 
 @st.cache_data
-def get_raw_esg_data(conn):
-    esg_raw_df = pd.read_sql("SELECT * FROM csrhub.public.faststarttrial;", conn)
+def get_raw_esg_data(_conn):
+    esg_raw_df = pd.read_sql("SELECT * FROM csrhub.public.faststarttrial;", _conn)
     return esg_raw_df
 
 
