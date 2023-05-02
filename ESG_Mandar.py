@@ -68,7 +68,7 @@ try:
     selected_company = st.sidebar.selectbox("Select Company that you wish to see all ESG scores",list_of_companies)
     pd_select_comp_df = pd_selected_df_1[pd_selected_df_1['COMPANY_NAME'] == selected_company]
     pd_select_comp_df = pd_select_comp_df[['COMPANY_NAME','RATING_DATE','ISIN','COMMUNITY','EMPLOYEES','ENVIRONMENT','GOVERNANCE']]
-    pd_select_comp_df = pd_select_comp_df.sort_values("RATING_DATE")
+    pd_select_comp_df = pd_select_comp_df.sort_values("RATING_DATE",ascending = False)
     st.dataframe(pd_select_comp_df)
     
 
