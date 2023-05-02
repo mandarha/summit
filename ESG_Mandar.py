@@ -58,7 +58,7 @@ try:
     st.write("")
     st.write("")
     st.write("")
-    st.write("**:grey[ESG Score Details of Companies under industry ]",selected_industry)
+    st.write("**:grey[ESG Score Details of Companies under industry ],selected_industry")
     st.dataframe(pd_selected_df)
 
     
