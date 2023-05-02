@@ -29,8 +29,8 @@ def get_raw_esg_data(_conn,selected_date):
     return esg_raw_df
 
 @st.cache_resource
-def get_agg_esg_data(conn,selected_date):
-    esg_raw_df = get_raw_esg_data(conn,selected_date)
+def get_agg_esg_data(_conn,selected_date):
+    esg_raw_df = get_raw_esg_data(_conn,selected_date)
     pd_esg_raw_df = pd.DataFrame(esg_raw_df)
     pd_group_score_df = pd_esg_raw_df[['INDUSTRY_DESC','COMMUNITY','EMPLOYEES','ENVIRONMENT','GOVERNANCE']]
     pd_group_score_df = pd_group_score_df.groupby('INDUSTRY_DESC',as_index = False)[['COMMUNITY','EMPLOYEES','ENVIRONMENT','GOVERNANCE']].mean()
