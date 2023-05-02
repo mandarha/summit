@@ -71,7 +71,7 @@ try:
     pd_select_comp_df = pd_select_comp_df.sort_values("RATING_DATE",ascending = False)
     st.write("")
     st.write("")
-    st.write("**:blue[ESG Score Details for Company :  ",selected_company"]**")
+    st.write("**:blue[ESG Score Details for Company :  ",selected_company," ]**")
     st.write("")
     st.write("")
     st.dataframe(pd_select_comp_df)
