@@ -44,6 +44,7 @@ try:
     st.sidebar.markdown("**:blue[This app displays ESG insights for various \
                         industries.\
                         Please scroll down to visualize further details at specific industry level]**")
+    st.sidebar.markdown("**_:red[Disclaimer : This application is based on data provided by CSR Hub on Snowflake Marketplace]_**")
     conn = init_connection()
     pd_group_score_df = get_agg_esg_data(conn)
     st.dataframe(pd_group_score_df)
