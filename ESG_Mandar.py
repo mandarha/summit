@@ -50,7 +50,7 @@ try:
     conn = init_connection()
     selected_date = st.sidebar.date_input("Select date for which you need ESG Scorecard")
     pd_group_score_df = get_agg_esg_data(conn,selected_date)
-    st.bar_chart(data=pd_group_score_df, x='Industry', y='Avg Community Score', width=0, height=0, use_container_width=True)
+    st.bar_chart(data=pd_group_score_df, x='Industry', y=['Avg Community Score','Avg Employee Score'], width=0, height=0, use_container_width=True)
     st.write("**:grey[Industry Wise ESG Score card :dart:]**")
     st.dataframe(pd_group_score_df)
     list_of_industries =  pd_group_score_df.Industry.unique()
