@@ -22,18 +22,9 @@ def init_connection():
     conn = init_connection()
     return conn
 
-# Perform query.
-# Uses st.cache_data to only rerun when the query changes or after 10 min.
-@st.cache_data(ttl=600)
-def run_query(query):
-    with conn.cursor() as cur:
-        cur.execute(query)
-        return cur.fetchall()
-
-run_query("USE ROLE SYSADMIN;")
-
 @st.cache_data
 def get_raw_esg_data(_conn):
+    pd.read_sql("USE ROLE SYSADMIN",_conn)
     esg_raw_df = pd.read_sql("SELECT * FROM csrhub.public.faststarttrial;", _conn)
     return esg_raw_df
 
