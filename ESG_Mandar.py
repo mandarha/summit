@@ -39,9 +39,9 @@ def get_agg_esg_data(conn):
 
 
 try:
-    st.sidebar.markdown("This app displays ESG insights for various \
+    st.sidebar.markdown("**:violet[This app displays ESG insights for various \
                         industries and possibility to drill down at individual company level for \
-                        multiple factors like employees,governance,community and environment")
+                        multiple factors like employees,governance,community and environment]**")
     conn = init_connection()
     pd_group_score_df = get_agg_esg_data(conn)
     st.dataframe(pd_group_score_df)
