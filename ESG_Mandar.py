@@ -43,6 +43,7 @@ def get_agg_esg_data(conn):
     pd_esg_raw_df = pd.DataFrame(esg_raw_df)
     pd_group_score_df = pd_esg_raw_df[['INDUSTRY_DESC','COMMUNITY','EMPLOYEES','ENVIRONMENT','GOVERNANCE']]
     pd_group_score_df = pd_group_score_df.groupby('INDUSTRY_DESC',as_index = False)[['COMMUNITY','EMPLOYEES','ENVIRONMENT','GOVERNANCE']].mean()
+    pd_group_score_df.columns = ['Industry','Avg Community Score','Avg Employee Score','Avg Environment Score','Avg Governance Score']
     return pd_group_score_df
 
 
