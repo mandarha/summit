@@ -25,7 +25,7 @@ def init_connection():
 @st.cache_data
 def get_raw_esg_data(_conn,selected_date):
     pd.read_sql("USE ROLE SYSADMIN",_conn)
-    esg_raw_df = pd.read_sql("SELECT * FROM csrhub.public.faststarttrial where rating_date < '{}';".format(selected_date), _conn)
+    esg_raw_df = pd.read_sql("SELECT distinct* FROM csrhub.public.faststarttrial where rating_date < '{}';".format(selected_date), _conn)
     return esg_raw_df
 
 
