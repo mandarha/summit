@@ -57,8 +57,9 @@ try:
     pd_selected_df = pd_selected_df[pd_selected_df['INDUSTRY_DESC'] == selected_industry]
     st.write("")
     st.write("")
-    st.write("")
     st.write('ESG Score Details of Companies under industry :  ',selected_industry)
+    st.write("")
+    st.write("")
     st.dataframe(pd_selected_df)
 
     
