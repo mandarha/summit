@@ -40,4 +40,4 @@ pd_esg_raw_data = pd.DataFrame(esg_raw_data)
 #st.write(pd_rows.columns)                 
 #pd_rows = pd_rows.groupby(["EMPID"]).sum()
 
-st.DataFrame(pd_esg_raw_data)
+st.dataframe(pd_esg_raw_data)
