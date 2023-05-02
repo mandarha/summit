@@ -28,7 +28,7 @@ def get_raw_esg_data(_conn,selected_date):
     esg_raw_df = pd.read_sql("SELECT distinct* FROM csrhub.public.faststarttrial where rating_date < '{}';".format(selected_date), _conn)
     return esg_raw_df
 
-
+@st.cache_resource
 def get_agg_esg_data(conn,selected_date):
     esg_raw_df = get_raw_esg_data(conn,selected_date)
     pd_esg_raw_df = pd.DataFrame(esg_raw_df)
