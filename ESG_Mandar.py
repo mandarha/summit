@@ -32,7 +32,7 @@ def run_query(query):
 
 run_query("USE ROLE SYSADMIN;")
 
-esg_raw_data  = run_query("select * from csrhub.public.faststarttrial group by industry_desc order by 1;")
+esg_raw_data  = run_query("select * from csrhub.public.faststarttrial ;")
 
 pd_esg_raw_data = pd.DataFrame(esg_raw_data)
 #st.write(pd_rows.columns)
